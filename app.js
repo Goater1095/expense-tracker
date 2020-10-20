@@ -25,10 +25,25 @@ db.once('open', () => {
 
 //set use
 app.use(bodyParser.urlencoded({ extends: true }));
+
 //set route
 //C"R"UD
 app.get('/', (req, res) => {
   Record.find()
+    .lean()
+    .then((records) => {
+      let total = 0;
+      for (let record of records) {
+        total += record.amount;
+      }
+      res.render('index', { records, total });
+    })
+    .catch((error) => console.log(error));
+});
+//sort category
+app.get('/sort/:category', (req, res) => {
+  const category = req.params.category;
+  Record.find({ category })
     .lean()
     .then((records) => {
       let total = 0;
