@@ -63,7 +63,14 @@ app.post('/records/:id/edit', (req, res) => {
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error))
 })
-
+//CRU"D"
+app.get('/records/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .then((record) => record.remove())
+    .then(() => res.redirect('/'))
+    .catch((error) => console.log(error))
+})
 app.listen(port, () => {
   console.log(`Express Server is start on http://localhost:${port}`)
 })
