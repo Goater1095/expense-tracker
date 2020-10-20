@@ -1,9 +1,9 @@
-{{!-- <form action="/records" method="POST">
+<form action="/records/{{record._id}}/edit" method="POST">
   <p>請修改你的支出</p>
   <input type="text" placeholder="name" name='name' value="{{record.name}}">
-  <input type="text" placeholder="date" name='date'>
-  <input type="text" placeholder="category" name='category'>
-  <input type="text" placeholder="amount" name='amount'>
+  <input type="text" placeholder="date" name='date' value="{{record.date}}">
+  <input type="text" placeholder="category" name='category' value="{{record.category}}">
+  <input type="text" placeholder="amount" name='amount' value="{{record.amount}}">
 
   <button type="submit">送出</button>
-</form> --}}
+</form>
