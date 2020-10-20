@@ -8,6 +8,9 @@ const recordSchema = new Schema({
   category: {
     type: String,
   },
+  image: {
+    type: String
+  },
   date: {
     type: String,
   },

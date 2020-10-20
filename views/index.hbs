@@ -1,1 +1,15 @@
 <h1>老爸的私房錢</h1>
+<ul>
+  {{#each records}}
+  <div class='container'>
+    <div class='row fas {{this.image}}'>
+      <div>
+        {{this.category}}
+        {{this.name}}
+        {{this.date}}
+        {{this.amount}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</ul>
