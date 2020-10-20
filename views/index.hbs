@@ -1,11 +1,10 @@
 <div class='container'>
   <div class="row my-1">
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-auto">
       <div class="dropdown">
-        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          類別
+        <button class="btn btn-light btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          類別123123123123123
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">Action</a>
@@ -14,23 +13,24 @@
         </div>
       </div>
     </div>
-    <div class="col-3"></div>
   </div>
   <div class="row my-1">
-    <div class="col-3"></div>
-    <div class="col-6">
-      <div class="mx-auto">總金額:</div>
+    <div class="col-2 ">
+      <h6 class="mx-auto">總金額:</h6>
     </div>
-    <div class="col-3"></div>
+    <div class="col-auto mr-auto">
+      <h1 class="mx-auto text-danger">{{total}}</h1>
+    </div>
+
 
   </div>
-  {{!-- <div class="row my-2"> --}}
+
   <ui class="list-group">
     {{#each records}}
     <li class="list-group-item">
       <div class="row">
         <div class="col-2 pr-0 bg-light">
-          <h3 class='mt-1 fas {{this.image}}'></h3>
+          <h3 class='mt-1 fas {{this.image}} text-info'></h3>
         </div>
         <div class="col-5 pl-0 bg-light">
           <div class="row">
@@ -51,13 +51,11 @@
           <a class="p-2 mx-1 badge badge-light" href="./records/{{this._id}}/delete">刪除</a>
         </div>
       </div>
-
     </li>
 
     {{/each}}
   </ui>
 
-  {{!-- </div> --}}
   <div class="row my-3 ">
     {{!-- <div class="col-3"></div> --}}
     <div class="col-auto mx-auto">
