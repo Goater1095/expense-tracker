@@ -1,4 +1,5 @@
 <h1>老爸的私房錢</h1>
+<a href="./records/new">新增支出</a>
 <ul>
   {{#each records}}
   <div class='container'>
@@ -9,6 +10,11 @@
         {{this.date}}
         {{this.amount}}
       </div>
+      <div>
+        <a href="./records/{{this._id}}/edit">修改</a>
+
+      </div>
+
     </div>
   </div>
   {{/each}}
