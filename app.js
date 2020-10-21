@@ -6,7 +6,13 @@ const port = 3000;
 const app = express();
 const Record = require('./models/Record');
 const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
-
+const imageList = [
+  'fa-home',
+  'fa-shuttle-van',
+  'fa-grin-beam',
+  'fa-utensils',
+  'fa-pen',
+];
 //set template engine
 app.engine('hbs', exhbs({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', 'hbs');
@@ -62,7 +68,8 @@ app.get('/records/new', (req, res) => {
 });
 app.post('/records', (req, res) => {
   const record = req.body;
-  console.log(record);
+  let index = categoryList.findIndex((item) => item === record.category);
+  record.image = imageList[index];
   return Record.create(record)
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error));
@@ -74,7 +81,6 @@ app.get('/records/:id/edit', (req, res) => {
   Record.findById(id)
     .lean()
     .then((record) => {
-      console.log(record.category);
       const categoryTrue = categoryList.map((item) => item === record.category);
       res.render('edit', {
         record,
