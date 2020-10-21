@@ -93,16 +93,21 @@ app.get('/records/:id/edit', (req, res) => {
     })
     .catch((error) => console.log(error));
 });
+
 app.post('/records/:id/edit', (req, res) => {
   const id = req.params.id;
+  const editRecord = req.body;
+  let index = categoryList.findIndex((item) => item === editRecord.category);
+  editRecord.image = imageList[index];
   return Record.findById(id)
     .then((record) => {
-      record = Object.assign(record, req.body);
+      record = Object.assign(record, editRecord);
       return record.save();
     })
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error));
 });
+
 //CRU"D"
 app.get('/records/:id/delete', (req, res) => {
   const id = req.params.id;
@@ -111,6 +116,7 @@ app.get('/records/:id/delete', (req, res) => {
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error));
 });
+
 app.listen(port, () => {
   console.log(`Express Server is start on http://localhost:${port}`);
 });
