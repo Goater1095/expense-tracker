@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const recordSchema = new Schema({
   name: {
@@ -7,12 +7,14 @@ const recordSchema = new Schema({
   },
   category: {
     type: String,
+    required: true,
   },
   image: {
-    type: String
+    type: String,
   },
   date: {
     type: String,
+    required: true,
   },
   amount: {
     type: Number,
@@ -20,4 +22,4 @@ const recordSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Record", recordSchema);
+module.exports = mongoose.model('Record', recordSchema);

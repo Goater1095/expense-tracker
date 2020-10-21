@@ -9,32 +9,34 @@
 
   </div>
   <div class="row">
-    <h5 class="my-2 col-3 text-right font-weight-bold">名稱 * :</h5>
-    <div class="my-2 col-9 ">
-      <input class='w-75' type="text" placeholder="    name" name='name'>
+    <h5 class="my-4 col-3 text-right font-weight-bold">名稱 * :</h5>
+    <div class="my-4 col-9 ">
+      <input class='py-1 w-75' type="text" placeholder="    name" name='name'>
     </div>
-    <h5 class="my-2 col-3 text-right font-weight-bold">日期 * :</h5>
-    <div class="my-2 col-9 ">
-      <input class='w-75' type="text" placeholder="    date" name='date'>
-    </div>
-    <h5 class="my-2 col-3 text-right font-weight-bold">類別 * :</h5>
-    <div class="my-2 col-9 ">
 
+    <h5 class="mb-4 col-3 text-right font-weight-bold">日期 * :</h5>
+    <div class="mb-4 col-9 ">
+      <input class='py-1 w-75' type="date" name='date'>
+    </div>
+
+    <h5 class="mb-2 col-3 text-right font-weight-bold">類別 * :</h5>
+    <div class="mb-2 col-9 ">
       <div class="form-group">
-        <select class="w-75 form-control" id="exampleFormControlSelect2">
-          <option>家居物業</option>
-          <option>交通出行</option>
-          <option>休閒娛樂</option>
-          <option>餐飲食品</option>
-          <option>其他</option>
+        <select class="py-1 w-75 form-control" id="exampleFormControlSelect2" name="category">
+          <option selected value="default">Select</option>
+          <option value="家居物業">家居物業</option>
+          <option value="交通出行">交通出行</option>
+          <option value="休閒娛樂">休閒娛樂</option>
+          <option value="餐飲食品">餐飲食品</option>
+          <option value="其他">其他</option>
         </select>
       </div>
-
-    </div>
-    <h5 class="my-2 col-3 text-right font-weight-bold">金額 * :</h5>
-    <div class="my-2 col-9 ">
-      <input class='w-75' type="text" placeholder="    amount" name='amount'>
     </div>
 
-    <button class="my-3 mx-auto" type="submit">新增支出</button>
+    <h5 class="mb-1 col-3 text-right font-weight-bold">金額 * :</h5>
+    <div class="mb-1 col-9 ">
+      <input class='py-1 w-75' type="text" placeholder="    amount" name='amount'>
+    </div>
+
+    <button class="my-3 mx-auto btn btn-dark mx-auto border-dark px-4 font-weight-bold" type="submit">新增支出</button>
 </form>
