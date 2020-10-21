@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost/expense', {
   useUnifiedTopology: true,
 });
 const db = mongoose.connection;
-const categoryList = ['家居物業', '交通出行', '休閒娛樂', , '餐飲食品', '其他'];
+const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
 const imageList = [
   'fa-home',
   'fa-shuttle-van',
@@ -26,7 +26,7 @@ db.once('open', () => {
       category: categoryList[i],
       image: imageList[i],
       amount: 9 * i,
-      date: `2020-${i + 1}-${i + 2}`,
+      date: `2020-0${i + 1}-0${i + 2}`,
     });
   }
   console.log('categorySeeder done');

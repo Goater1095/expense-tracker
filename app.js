@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const app = express();
 const Record = require('./models/Record');
+const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
 
 //set template engine
 app.engine('hbs', exhbs({ defaultLayout: 'main', extname: '.hbs' }));
@@ -32,11 +33,11 @@ app.get('/', (req, res) => {
   Record.find()
     .lean()
     .then((records) => {
-      let total = 0;
+      let totalAmount = 0;
       for (let record of records) {
-        total += record.amount;
+        totalAmount += record.amount;
       }
-      res.render('index', { records, total });
+      res.render('index', { records, totalAmount });
     })
     .catch((error) => console.log(error));
 });
@@ -46,11 +47,11 @@ app.get('/sort/:category', (req, res) => {
   Record.find({ category })
     .lean()
     .then((records) => {
-      let total = 0;
+      let totalAmount = 0;
       for (let record of records) {
-        total += record.amount;
+        totalAmount += record.amount;
       }
-      res.render('index', { records, total });
+      res.render('index', { records, totalAmount });
     })
     .catch((error) => console.log(error));
 });
@@ -72,7 +73,18 @@ app.get('/records/:id/edit', (req, res) => {
   const id = req.params.id;
   Record.findById(id)
     .lean()
-    .then((record) => res.render('edit', { record }))
+    .then((record) => {
+      console.log(record.category);
+      const categoryTrue = categoryList.map((item) => item === record.category);
+      res.render('edit', {
+        record,
+        category0: categoryTrue[0],
+        category1: categoryTrue[1],
+        category2: categoryTrue[2],
+        category3: categoryTrue[3],
+        category4: categoryTrue[4],
+      });
+    })
     .catch((error) => console.log(error));
 });
 app.post('/records/:id/edit', (req, res) => {
