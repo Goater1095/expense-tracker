@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const exhbs = require('express-handlebars');
 const bodyParser = require('body-parser');
-const port = 3000;
+const port = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/expense';
 const app = express();
 const Record = require('./models/Record');
 const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
@@ -18,7 +19,7 @@ app.engine('hbs', exhbs({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
 //set mongodb
-mongoose.connect('mongodb://localhost/expense', {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
