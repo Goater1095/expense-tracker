@@ -4,29 +4,24 @@
 
 ### 功能描述 (features)：
 
-- 使用者可以在首頁看到所有餐廳與它們的簡單資料：
-  餐廳照片
-  餐廳名稱
-  餐廳分類
-  餐廳評分
-- 使用者可以再點進去看餐廳的詳細資訊：
-  類別
-  地址
-  電話
-  描述
-  圖片
-- 使用者可以透過"搜尋餐廳名稱"來找到特定的餐廳
-- 使用者可以透過"新增餐廳清單"來建立特定的餐廳
-- 使用者可以透過"Edit button" & "修改餐廳內容" 變更餐廳的詳細資訊
-- 使用者可以透過"Detail button"進入看餐廳的詳細資訊
-- 使用者可以透過"Delete button" & "刪除餐廳" 移除不想要的餐廳
+- 使用者可以在首頁看到所有帳目與它們的簡單資料：
+  帳目圖片/分類
+  帳目名稱
+  帳目日期
+  帳目金額
+  帳目總金額
+- 使用者可以透過"類別"來找到特定的帳目與特定的帳目的總金額
+- 使用者可以透過"新增支出"來建立特定的帳目
+- 使用者可以透過"修改" 變更帳目內容
+- 使用者可以透過"刪除" 移除不想要的帳目
+- 使用者可以透過"家庭記帳本"連結回去首頁的帳目表
 
 ### 安裝
 
 1.開啟終端機(Terminal)cd 到存放專案本機位置並執行:
 
 ```
-git clone https://github.com/Goater1095/Restaurant-List.git
+git clone https://github.com/Goater1095/expense-tracker.git
 ```
 
 2.初始
@@ -57,4 +52,3 @@ npm run dev  //執行程式
 - Body-Parser - url-encoded
 - MongoDB - Data base
 - Mongoose - ODM for MongoDB
-- Method-Override - Modify request Verb
