@@ -1,11 +1,20 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const exhbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
+const session = require('express-session');
+
 const port = process.env.PORT || 3000;
 const app = express();
 require('./config/mongoose'); //被require的會執行
+
+app.use(
+  session({
+    secret: 'MySecret',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 //set template engine
 app.engine('hbs', exhbs({ defaultLayout: 'main', extname: '.hbs' }));
