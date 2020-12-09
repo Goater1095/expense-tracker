@@ -31,13 +31,13 @@ router.post('/register', (req, res) => {
       return res.render('register', name, email.password, confirmPassword);
     }
     return User.create({ name, email, password })
-      .then(() => res.redirect('/'))
+      .then(() => res.redirect('/users/login'))
       .catch((err) => console.log(err));
   });
 });
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/users/login');
   console.log('已經成功登出');
+  res.redirect('/users/login');
 });
 module.exports = router;
