@@ -1,20 +1,7 @@
-const mongoose = require('mongoose');
+const db = require('../../config/mongoose');
 const Record = require('../Record');
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/expense';
-
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const db = mongoose.connection;
 const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
-const imageList = [
-  'fa-home',
-  'fa-shuttle-van',
-  'fa-grin-beam',
-  'fa-utensils',
-  'fa-pen',
-];
+const imageList = ['fa-home', 'fa-shuttle-van', 'fa-grin-beam', 'fa-utensils', 'fa-pen'];
 
 db.on('error', () => {
   console.log('mongodb error!');
