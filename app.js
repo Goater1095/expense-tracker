@@ -1,7 +1,8 @@
 const express = require('express');
 const exhbs = require('express-handlebars');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const session = require('express-session');
+const flash = require('connect-flash');
 
 const userPassport = require('./config/passport');
 const routes = require('./routes');
@@ -14,7 +15,7 @@ require('./config/mongoose'); //被require的會執行
 app.engine('hbs', exhbs({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
-app.use(bodyParser.urlencoded({ extends: true }));
+app.use(express.urlencoded({ extends: true }));
 
 app.use(
   session({
@@ -24,6 +25,16 @@ app.use(
   })
 );
 userPassport(app);
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  res.locals.user = req.user;
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.warning_msg = req.flash('warning_msg');
+  res.locals.error = req.flash('error');
+  res.locals.newError = req.flash('newError');
+  next();
+});
 
 app.use(routes);
 
