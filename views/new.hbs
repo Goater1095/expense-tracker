@@ -6,36 +6,44 @@
     <div class="mt-2 col-7 ">
       <h5 class="text-center font-weight-bold">請輸入你的支出</h5>
     </div>
-
+    <div class="col-3"></div>
+    <div class="col-7">
+      {{> newError}}
+    </div>
   </div>
   <div class="row">
-    <h5 class="my-4 col-3 text-right font-weight-bold">名稱 * :</h5>
-    <div class="my-4 col-9 ">
-      <input class='pl-2 py-1 w-75' type="text" placeholder="name" name='name'>
+    <h5 class="mt-2 mb-4 col-3 text-right font-weight-bold">名稱 * :</h5>
+    <div class="mt-2 mb-4 col-9 ">
+      <input class='pl-2 py-1 w-75' type="text" placeholder="name" name='name' value='{{name}}'>
     </div>
 
     <h5 class="mb-4 col-3 text-right font-weight-bold">日期 * :</h5>
     <div class="mb-4 col-9 ">
-      <input class='py-1 w-75' type="date" name='date'>
+      <input class='py-1 w-75' type="date" name='date' value='{{date}}'>
     </div>
 
     <h5 class="mb-2 col-3 text-right font-weight-bold">類別 * :</h5>
     <div class="mb-2 col-9 ">
       <div class="form-group">
-        <select class="py-1 w-75 form-control" id="exampleFormControlSelect2" name="category">
-          <option selected value="default">Select</option>
-          <option value="家居物業">家居物業</option>
-          <option value="交通出行">交通出行</option>
-          <option value="休閒娛樂">休閒娛樂</option>
-          <option value="餐飲食品">餐飲食品</option>
-          <option value="其他">其他</option>
+        <select class="custom-select py-1 w-75 form-control" id="exampleFormControlSelect2" name="category">
+          <option selected value="default">Choose..</option>
+          <option value="家居物業" {{#if category0}} selected {{/if}}>家居物業</option>
+          <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
+          <option value="休閒娛樂" {{#if category2}} selected {{/if}}>休閒娛樂</option>
+          <option value="餐飲食品" {{#if category3}} selected {{/if}}>餐飲食品</option>
+          <option value="其他" {{#if category4}} selected {{/if}}>其他</option>
         </select>
       </div>
     </div>
 
+    <h5 class="mt-2 mb-4 col-3 text-right font-weight-bold">店名 &nbsp;&ensp;:</h5>
+    <div class="mt-2 mb-4 col-9 ">
+      <input class='pl-2 py-1 w-75' type="text" placeholder="merchant" name='merchant' value='{{merchant}}'>
+    </div>
+
     <h5 class="mb-1 col-3 text-right font-weight-bold">金額 * :</h5>
     <div class="mb-1 col-9 ">
-      <input class='pl-2 py-1 w-75' type="text" placeholder="amount" name='amount'>
+      <input class=' pl-2 py-1 w-75' type="number" placeholder="amount" name='amount' value='{{amount}}'>
     </div>
 
     <button class="my-3 mx-auto btn btn-dark mx-auto border-dark px-4 font-weight-bold" type="submit">新增支出</button>
