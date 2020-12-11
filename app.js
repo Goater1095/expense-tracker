@@ -15,7 +15,7 @@ require('./config/mongoose'); //被require的會執行
 app.engine('hbs', exhbs({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
-app.use(express.urlencoded({ extends: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({

@@ -36,14 +36,15 @@ router.post('/', (req, res) => {
   let index = categoryList.findIndex((item) => item === record.category);
   record.image = imageList[index];
   record.userId = req.user._id;
-  return Record.create(Object.assign(record))
+  return Record.create(record)
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error));
 });
 
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id;
-  Record.findById(id)
+  const userId = req.user._id;
+  Record.findOne({ _id: id, userId })
     .lean()
     .then((record) => {
       const categoryTrue = categoryList.map((item) => item === record.category);
@@ -60,10 +61,11 @@ router.get('/:id/edit', (req, res) => {
 });
 router.post('/:id/edit', (req, res) => {
   const id = req.params.id;
+  const userId = req.user._id;
   const editRecord = req.body;
   let index = categoryList.findIndex((item) => item === editRecord.category);
   editRecord.image = imageList[index];
-  return Record.findById(id)
+  return Record.findOne({ _id: id, userId })
     .then((record) => {
       record = Object.assign(record, editRecord);
       return record.save();
@@ -74,7 +76,8 @@ router.post('/:id/edit', (req, res) => {
 
 router.get('/:id/delete', (req, res) => {
   const id = req.params.id;
-  return Record.findById(id)
+  const userId = req.user._id;
+  return Record.findOne({ _id: id, userId })
     .then((record) => record.remove())
     .then(() => res.redirect('/'))
     .catch((error) => console.log(error));

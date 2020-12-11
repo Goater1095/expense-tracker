@@ -11,6 +11,7 @@ const recordSchema = new Schema({
   },
   image: {
     type: String,
+    required: true,
   },
   date: {
     type: String,
@@ -19,6 +20,9 @@ const recordSchema = new Schema({
   amount: {
     type: Number,
     required: true,
+  },
+  merchant: {
+    type: String,
   },
   userId: {
     type: Schema.Types.ObjectId,
