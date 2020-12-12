@@ -1,22 +1,38 @@
 <div class='container'>
 
   <div class="row my-1">
-    <div class="col-12">
-      <div class=" dropdown">
-        <button class="border-dark text-left form-control btn btn-light btn-sm dropdown-toggle" type="button"
-          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          類別
-        </button>
-        <div class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/">全部</a>
-          <a class="dropdown-item" href="/sort/家居物業">家居物業</a>
-          <a class="dropdown-item" href="/sort/交通出行">交通出行</a>
-          <a class="dropdown-item" href="/sort/休閒娛樂">休閒娛樂</a>
-          <a class="dropdown-item" href="/sort/餐飲食品">餐飲食品</a>
-          <a class="dropdown-item" href="/sort/其他">其他</a>
+    <form class="mb-2 col-12" action="/sort" method="POST">
+      <div class="row filter">
+        <div class='col-6 category'>
+          <select class="custom-select py-1  " id="exampleFormControlSelect2" name="category" onchange="submit()">
+            <option selected value="全部支出">全部支出</option>
+            <option value="家居物業" {{#if category0}} selected {{/if}}>家居物業</option>
+            <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
+            <option value="休閒娛樂" {{#if category2}} selected {{/if}}>休閒娛樂</option>
+            <option value="餐飲食品" {{#if category3}} selected {{/if}}>餐飲食品</option>
+            <option value="其他" {{#if category4}} selected {{/if}}>其他</option>
+          </select>
+        </div>
+
+        <div class='col-6 month'>
+          <select class="custom-select py-1" id="exampleFormControlSelect2" name="month" onchange="submit()">
+            <option selected value="月份">月份</option>
+            <option value="0" {{#if month0}} selected {{/if}}>一月</option>
+            <option value="1" {{#if month1}} selected {{/if}}>二月</option>
+            <option value="2" {{#if month2}} selected {{/if}}>三月</option>
+            <option value="3" {{#if month3}} selected {{/if}}>四月</option>
+            <option value="4" {{#if month4}} selected {{/if}}>五月</option>
+            <option value="5" {{#if month5}} selected {{/if}}>六月</option>
+            <option value="6" {{#if month6}} selected {{/if}}>七月</option>
+            <option value="7" {{#if month7}} selected {{/if}}>八月</option>
+            <option value="8" {{#if month8}} selected {{/if}}>九月</option>
+            <option value="9" {{#if month9}} selected {{/if}}>十月</option>
+            <option value="10" {{#if month10}} selected {{/if}}>十一月</option>
+            <option value="11" {{#if month11}} selected {{/if}}>十二月</option>
+          </select>
         </div>
       </div>
-    </div>
+    </form>
   </div>
 
   <div class="row my-1">
@@ -26,8 +42,6 @@
     <div class="col-auto mr-auto">
       <h1 class="mx-auto text-danger">{{totalAmount}}</h1>
     </div>
-
-
   </div>
 
   <ui class="list-group">
@@ -47,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div class="col-3 bg-light  d-flex align-items-center">
+        <div class="col-2 bg-light  d-flex align-items-center">
           店名:<br>
           {{this.merchant}}
         </div>
@@ -55,7 +69,7 @@
           金額:<br>
           {{this.amount}}
         </div>
-        <div class="col-2 d-flex align-items-center">
+        <div class="col-3 d-flex align-items-center">
           <a class="p-2 mx-1 badge badge-light" href="/records/{{this._id}}/edit">修改</a>
           <a class="p-2 mx-1 badge badge-light" href="/records/{{this._id}}/delete">刪除</a>
         </div>
@@ -66,11 +80,8 @@
   </ui>
 
   <div class="row my-3 ">
-    {{!-- <div class="col-3"></div> --}}
     <div class="col-auto mx-auto">
       <a class='btn btn-warning mx-auto border-dark text-white px-4 font-weight-bold' href="/records/new">新增支出</a>
     </div>
-    {{!-- <div class="col-3"></div> --}}
-
   </div>
 </div>

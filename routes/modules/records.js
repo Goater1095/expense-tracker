@@ -1,14 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Record = require('../../models/Record');
-const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
-const imageList = [
-  'fa-home',
-  'fa-shuttle-van',
-  'fa-grin-beam',
-  'fa-utensils',
-  'fa-pen',
-];
+const { categoryList, imageList } = require('../../config/setList');
 
 router.get('/new', (req, res) => {
   return res.render('new');
