@@ -3,11 +3,13 @@ const exhbs = require('express-handlebars');
 // const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
-
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const userPassport = require('./config/passport');
 const routes = require('./routes');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 const app = express();
 require('./config/mongoose'); //被require的會執行
 
@@ -19,11 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
-    secret: 'MySecret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
 );
+
 userPassport(app);
 app.use(flash());
 app.use((req, res, next) => {
