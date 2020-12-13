@@ -1,21 +1,15 @@
 const db = require('../../config/mongoose');
-const Record = require('../Record');
-const categoryList = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他'];
-const imageList = ['fa-home', 'fa-shuttle-van', 'fa-grin-beam', 'fa-utensils', 'fa-pen'];
+const { categoryList, imageList } = require('../../config/setList');
+const Category = require('../Category');
 
-db.on('error', () => {
-  console.log('mongodb error!');
-});
 db.once('open', () => {
-  console.log('mongodb connected!');
-  for (let i = 0; i < 5; i++) {
-    Record.create({
-      name: 'name-' + i,
-      category: categoryList[i],
-      image: imageList[i],
-      amount: 9 * i,
-      date: `2020-0${i + 1}-0${i + 2}`,
-    });
-  }
-  console.log('categorySeeder done');
+  console.log('mongodb connected categorySeeder!');
+  Promise.all(
+    Array.from({ length: categoryList.length }, (_, i) =>
+      Category.create({ category: categoryList[i], image: imageList[i] })
+    )
+  ).then(() => {
+    console.log('categorySeeder done!');
+    db.close();
+  });
 });
