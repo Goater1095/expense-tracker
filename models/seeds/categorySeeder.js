@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const db = require('../../config/mongoose');
 const { categoryList, imageList } = require('../../config/setList');
 const Category = require('../Category');
