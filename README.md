@@ -4,7 +4,7 @@
 
 ![Login Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/add.PNG)
 ![Register Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/register.PNG)
-![Home Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/home.PGN)
+![Home Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/home.PNG)
 ![Add Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/add.PNG)
 
 ### 功能描述 (features)：
