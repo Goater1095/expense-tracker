@@ -2,10 +2,10 @@
 
 一個使用 Express + node.js 建立的記帳工具
 
-![Login Page](/public/images/login.png)
-![Register Page](/public/images/register.png)
-![Home Page](/public/images/home.png)
-![Add Page](/public/images/add.png)
+![Login Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/add.PNG)
+![Register Page](https://github.com/Goater1095/expense-tracker/blob/maste/public/images/register.png)
+![Home Page](https://github.com/Goater1095/expense-tracker/blob/maste/public/images/home.png)
+![Add Page](https://github.com/Goater1095/expense-tracker/blob/maste/public/images/add.png)
 
 ### 功能描述 (features)：
 
