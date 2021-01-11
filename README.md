@@ -1,6 +1,7 @@
 # Expense Tracker (老爸的私房錢)
 
 一個使用 Express + node.js 建立的記帳工具
+(heroku 連結: https://powerful-chamber-01256.herokuapp.com/users/login)
 
 ![Login Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/add.PNG)
 ![Register Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/register.PNG)
