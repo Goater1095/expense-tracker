@@ -3,8 +3,8 @@ const router = express.Router();
 const Record = require('../../models/Record');
 const { categoryList, imageList, monthList } = require('../../config/setList');
 
-router.post('/', (req, res) => {
-  const { month, category } = req.body;
+router.get('/', (req, res) => {
+  const { month, category } = req.query;
   const categoryTrue = categoryList.map((item) => item === category);
   const monthTrue = monthList.map((item) => item === month);
   const userId = req.user._id;

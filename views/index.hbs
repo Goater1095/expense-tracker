@@ -1,10 +1,15 @@
 <div class='container'>
 
   <div class="row my-1">
-    <form class="mb-2 col-12" action="/sort" method="POST">
+    <form class="mb-2 col-12" action="/sort">
       <div class="row filter">
-        <div class='col-6 category'>
-          <select class="custom-select py-1  " id="exampleFormControlSelect2" name="category" onchange="submit()">
+        <div class='input-group col-6 category'>
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-secondary text-light">
+              <i class="fas fa-filter"></i>
+            </label>
+          </div>
+          <select class="custom-select py-1 font-weight-bolder" name="category" onchange="submit()">
             <option selected value="全部支出">全部支出</option>
             <option value="家居物業" {{#if category0}} selected {{/if}}>家居物業</option>
             <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
@@ -14,8 +19,13 @@
           </select>
         </div>
 
-        <div class='col-6 month'>
-          <select class="custom-select py-1" id="exampleFormControlSelect2" name="month" onchange="submit()">
+        <div class='input-group col-6 month'>
+          <div class="input-group-prepend">
+            <label class="input-group-text bg-secondary text-light">
+              <i class="far fa-calendar-alt"></i>
+            </label>
+          </div>
+          <select class="custom-select py-1 font-weight-bolder" name="month" onchange="submit()">
             <option selected value="月份">月份</option>
             <option value="0" {{#if month0}} selected {{/if}}>一月</option>
             <option value="1" {{#if month1}} selected {{/if}}>二月</option>
@@ -86,7 +96,7 @@
 
   <div class="row my-3 ">
     <div class="col-auto mx-auto">
-      <a class='btn btn-warning mx-auto border-dark text-white px-4 font-weight-bold' href="/records/new">新增支出</a>
+      <a class='btn btn-warning mx-auto border-dark text-muted px-4 font-weight-bold' href="/records/new">新增支出</a>
     </div>
   </div>
 </div>
