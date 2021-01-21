@@ -10,21 +10,21 @@ router.post('/', (req, res) => {
   const record = req.body;
   const { name, category, date, amount } = req.body;
   const categoryTrue = categoryList.map((item) => item === record.category);
-  // if (!name || !category || !date || !amount) {
-  //   req.flash('newError', '所有欄位都是必填。'); //方法一: 第一次沒填欄位不會有訊息
-  //   const newError = '所有欄位都是必填'; //方法二
-  //   return res.render('new', {
-  //     newError, //方法二
-  //     name,
-  //     date,
-  //     amount,
-  //     category0: categoryTrue[0],
-  //     category1: categoryTrue[1],
-  //     category2: categoryTrue[2],
-  //     category3: categoryTrue[3],
-  //     category4: categoryTrue[4],
-  //   });
-  // }
+  if (!name || !category || !date || !amount) {
+    // req.flash('newError', '所有欄位都是必填。'); //方法一: 第一次沒填欄位不會有訊息 (要他配redirect 重回客戶端發送請求才會經過app.use(flash());
+    const newError = '所有欄位都是必填'; //方法二
+    return res.render('new', {
+      newError, //方法二
+      name,
+      date,
+      amount,
+      category0: categoryTrue[0],
+      category1: categoryTrue[1],
+      category2: categoryTrue[2],
+      category3: categoryTrue[3],
+      category4: categoryTrue[4],
+    });
+  }
 
   let index = categoryList.findIndex((item) => item === record.category);
   record.image = imageList[index];
@@ -52,7 +52,7 @@ router.get('/:id/edit', (req, res) => {
     })
     .catch((error) => console.log(error));
 });
-router.post('/:id/edit', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id;
   const userId = req.user._id;
   const editRecord = req.body;
@@ -67,7 +67,7 @@ router.post('/:id/edit', (req, res) => {
     .catch((error) => console.log(error));
 });
 
-router.get('/:id/delete', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id;
   const userId = req.user._id;
   return Record.findOne({ _id: id, userId })

@@ -2,6 +2,7 @@ const express = require('express');
 const exhbs = require('express-handlebars');
 // const bodyParser = require('body-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const flash = require('connect-flash');
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
@@ -38,7 +39,7 @@ app.use((req, res, next) => {
   res.locals.newError = req.flash('newError');
   next();
 });
-
+app.use(methodOverride('_method'));
 app.use(routes);
 
 app.listen(port, () => {

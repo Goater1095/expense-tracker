@@ -3,21 +3,6 @@ const router = express.Router();
 const Record = require('../../models/Record');
 const { categoryList, imageList, monthList } = require('../../config/setList');
 
-router.get('/:category', (req, res) => {
-  const category = req.params.category;
-  const userId = req.user._id;
-  Record.find({ userId, category })
-    .lean()
-    .then((records) => {
-      let totalAmount = 0;
-      for (let record of records) {
-        totalAmount += record.amount;
-      }
-      res.render('index', { records, totalAmount });
-    })
-    .catch((error) => console.log(error));
-});
-
 router.post('/', (req, res) => {
   const { month, category } = req.body;
   const categoryTrue = categoryList.map((item) => item === category);

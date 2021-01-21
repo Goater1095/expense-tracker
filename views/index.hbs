@@ -72,8 +72,11 @@
         <div class="col-2 d-flex align-items-center justify-content-center">
           <a class="p-2 mx-1 badge badge-light text-primary" href="/records/{{this._id}}/edit"><i
               class="fas fa-edit"></i></a>
-          <a class="p-2 mx-1 badge badge-light text-danger" href="/records/{{this._id}}/delete"><i
-              class="fas fa-trash-alt"></i></a>
+          <form action="/records/{{this._id}}?_method=DELETE" method="POST" style="display: inline"
+            onsubmit="return confirm('確定要刪除這筆支出嗎？')">
+            <button class="btn p-2 mx-1 badge btn-light text-danger" type="submit"><i
+                class="fas fa-trash-alt"></i></button>
+          </form>
         </div>
       </div>
     </li>
