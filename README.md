@@ -3,7 +3,7 @@
 一個使用 Express + node.js 建立的記帳工具
 (heroku 連結: https://powerful-chamber-01256.herokuapp.com/users/login)
 
-![Login Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/add.PNG)
+![Login Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/login.PNG)
 ![Register Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/register.PNG)
 ![Home Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/home.PNG)
 ![Add Page](https://github.com/Goater1095/expense-tracker/blob/master/public/images/add.PNG)
