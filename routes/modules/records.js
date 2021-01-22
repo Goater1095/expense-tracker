@@ -49,7 +49,7 @@ router.get('/:id/edit', (req, res) => {
         category2: categoryTrue[2],
         category3: categoryTrue[3],
         category4: categoryTrue[4],
-        category4: categoryTrue[5],
+        category5: categoryTrue[5],
       });
     })
     .catch((error) => console.log(error));
@@ -58,8 +58,12 @@ router.put('/:id', (req, res) => {
   const id = req.params.id;
   const userId = req.user._id;
   const editRecord = req.body;
+  console.log(editRecord.category);
   let index = categoryList.findIndex((item) => item === editRecord.category);
+  console.log(index);
+  console.log(imageList);
   editRecord.image = imageList[index];
+
   return Record.findOne({ _id: id, userId })
     .then((record) => {
       record = Object.assign(record, editRecord);

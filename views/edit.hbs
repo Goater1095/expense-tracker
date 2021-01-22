@@ -29,7 +29,8 @@
           <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
           <option value="休閒娛樂" {{#if category2}} selected {{/if}}>休閒娛樂</option>
           <option value="餐飲食品" {{#if category3}} selected {{/if}}>餐飲食品</option>
-          <option value="其他" {{#if category4}} selected {{/if}}>其他</option>
+          <option value="其他支出" {{#if category4}} selected {{/if}}>其他支出</option>
+          <option value="收入" {{#if category5}} selected {{/if}}>收入</option>
         </select>
       </div>
     </div>
@@ -44,5 +45,5 @@
       <input class='pl-2 py-1 w-75' type="number" placeholder="    amount" name='amount' value="{{record.amount}}">
     </div>
 
-    <button class="my-3 mx-auto btn btn-dark mx-auto border-dark px-4 font-weight-bold" type="submit">送出修改</button>
+    <button class="my-3 mx-auto btn btn-success mx-auto border-dark px-4 font-weight-bold" type="submit">送出修改</button>
 </form>
