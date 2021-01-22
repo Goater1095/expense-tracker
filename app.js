@@ -1,5 +1,6 @@
 const express = require('express');
 const exhbs = require('express-handlebars');
+var helpers = require('handlebars-helpers')();
 // const bodyParser = require('body-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');

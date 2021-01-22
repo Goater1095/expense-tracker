@@ -3,6 +3,7 @@
   <div class="row my-1">
     <form class="mb-2 col-12" action="/sort">
       <div class="row filter">
+        {{!-- category filter --}}
         <div class='input-group col-6 category'>
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary text-light">
@@ -10,15 +11,17 @@
             </label>
           </div>
           <select class="custom-select py-1 font-weight-bolder" name="category" onchange="submit()">
-            <option selected value="全部支出">全部支出</option>
+            <option selected value="全部收支">全部收支</option>
+            <option value="全部支出" {{#if categoryCost}} selected {{/if}}>全部支出</option>
+            <option value="全部收入" {{#if categoryIncome}} selected {{/if}}>全部收入</option>
             <option value="家居物業" {{#if category0}} selected {{/if}}>家居物業</option>
             <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
             <option value="休閒娛樂" {{#if category2}} selected {{/if}}>休閒娛樂</option>
             <option value="餐飲食品" {{#if category3}} selected {{/if}}>餐飲食品</option>
-            <option value="其他" {{#if category4}} selected {{/if}}>其他</option>
+            <option value="其他支出" {{#if category4}} selected {{/if}}>其他</option>
           </select>
         </div>
-
+        {{!-- month filter --}}
         <div class='input-group col-6 month'>
           <div class="input-group-prepend">
             <label class="input-group-text bg-primary text-light">
@@ -59,7 +62,11 @@
     <li class="list-group-item">
       <div class="row">
         <div class="col-2 px-2 bg-light">
+          {{#if (eq this.image 'fas fa-coins' )}}
+          <h3 class='mt-1 fas {{this.image}} text-warning'></h3>
+          {{else}}
           <h3 class='mt-1 fas {{this.image}} text-info'></h3>
+          {{/if}}
         </div>
         <div class="col-4 px-2 bg-light">
           <div class="row">
@@ -96,7 +103,7 @@
 
   <div class="row my-3 ">
     <div class="col-auto mx-auto">
-      <a class='btn btn-warning mx-auto border-dark text-muted px-4 font-weight-bold' href="/records/new">新增支出</a>
+      <a class='btn btn-success mx-auto border-dark text-light px-4 font-weight-bold' href="/records/new">新增一筆紀錄</a>
     </div>
   </div>
 </div>

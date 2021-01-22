@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
       category2: categoryTrue[2],
       category3: categoryTrue[3],
       category4: categoryTrue[4],
+      category4: categoryTrue[5],
     });
   }
 
@@ -48,6 +49,7 @@ router.get('/:id/edit', (req, res) => {
         category2: categoryTrue[2],
         category3: categoryTrue[3],
         category4: categoryTrue[4],
+        category4: categoryTrue[5],
       });
     })
     .catch((error) => console.log(error));

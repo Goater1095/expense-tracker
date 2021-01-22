@@ -4,7 +4,7 @@
       * 必填欄位
     </div>
     <div class="mt-2 col-7 ">
-      <h5 class="text-center font-weight-bold">請輸入你的支出</h5>
+      <h5 class="text-center font-weight-bold">請輸入你的收支紀錄</h5>
     </div>
     <div class="col-3"></div>
     <div class="col-7">
@@ -32,7 +32,8 @@
           <option value="交通出行" {{#if category1}} selected {{/if}}>交通出行</option>
           <option value="休閒娛樂" {{#if category2}} selected {{/if}}>休閒娛樂</option>
           <option value="餐飲食品" {{#if category3}} selected {{/if}}>餐飲食品</option>
-          <option value="其他" {{#if category4}} selected {{/if}}>其他</option>
+          <option value="其他支出" {{#if category4}} selected {{/if}}>其他支出</option>
+          <option value="收入" {{#if category5}} selected {{/if}}>收入</option>
         </select>
       </div>
     </div>
@@ -49,7 +50,7 @@
       <small class="text-muted form-text">至少輸入 0 元</small>
     </div>
 
-    <button class="my-3 mx-auto btn btn-success mx-auto border-dark px-4 font-weight-bold" type="submit">新增支出</button>
+    <button class="my-3 mx-auto btn btn-success mx-auto border-dark px-4 font-weight-bold" type="submit">新增</button>
   </div>
 
 </form>

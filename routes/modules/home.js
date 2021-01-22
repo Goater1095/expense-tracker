@@ -9,7 +9,11 @@ router.get('/', (req, res) => {
     .then((records) => {
       let totalAmount = 0;
       for (let record of records) {
-        totalAmount += record.amount;
+        if (record.image === 'fas fa-coins') {
+          totalAmount += record.amount;
+        } else {
+          totalAmount -= record.amount;
+        }
       }
       res.render('index', { records, totalAmount });
     })
